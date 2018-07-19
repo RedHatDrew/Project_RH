@@ -171,6 +171,9 @@ public class Rocket3D : MonoBehaviour
             transform.Rotate(-Vector3.right * rotationThisFrame);
         }
 
+        //Add controller analog stick support below.
+        //transform.Rotate(Input.)
+
         rigidBody.freezeRotation = false; // Resume physics control over movement
     }
 
