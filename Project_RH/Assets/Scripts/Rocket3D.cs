@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//TODO: Set axis rotation limiters? (x to 180, Y locked, Z has none/is free)
+
 public class Rocket3D : MonoBehaviour
 {
 
@@ -44,6 +46,7 @@ public class Rocket3D : MonoBehaviour
             RespondToThrustInput();
             RespondToRotateInputZ();
             RespondToRotateInputX();
+            RespondToRotateInputY();
         }
         if (Debug.isDebugBuild)
         {
@@ -159,7 +162,8 @@ public class Rocket3D : MonoBehaviour
     {
         rigidBody.freezeRotation = true; // Take manual control over rotation
 
-        float rotationThisFrame = rcsThrust * Time.deltaTime;
+        float rotationThisFrame = rcsThrust *  Time.deltaTime;
+
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -169,6 +173,30 @@ public class Rocket3D : MonoBehaviour
         else if (Input.GetKey(KeyCode.S))
         {
             transform.Rotate(-Vector3.right * rotationThisFrame);
+        }
+
+        //Add controller analog stick support below.
+        //transform.Rotate(Input.)
+
+        rigidBody.freezeRotation = false; // Resume physics control over movement
+    }
+
+    private void RespondToRotateInputY()
+    {
+        rigidBody.freezeRotation = true; // Take manual control over rotation
+
+        float rotationThisFrame = (rcsThrust * 20f) * Time.deltaTime;
+
+
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.Rotate(Vector3.up * rotationThisFrame);
+        }
+
+        else if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(-Vector3.up * rotationThisFrame);
         }
 
         //Add controller analog stick support below.
