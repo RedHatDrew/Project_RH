@@ -8,6 +8,9 @@ TagManager:
   - Choice1
   - Choice2
   - Choice3
+  - Bldg
+  - Bldg_Base
+  - TheGround
   layers:
   - Default
   - TransparentFX

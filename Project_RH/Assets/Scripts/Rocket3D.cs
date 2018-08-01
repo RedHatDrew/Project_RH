@@ -25,22 +25,21 @@ public class Rocket3D : MonoBehaviour
     enum State { Alive, Dying, Transcending, SafeTravel }
     State state = State.Alive;
 
-    bool collisionDisabled = false;
+    //float rocketSpeed = rigidbody.velocity.magnitude
 
-    int sceneCount;
+    bool collisionDisabled = false;
 
     // Use this for initialization
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
-        sceneCount = SceneManager.sceneCountInBuildSettings;
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(rigidBody.velocity.magnitude);
         if (state == State.Alive)
         {
             RespondToThrustInput();
@@ -63,56 +62,13 @@ public class Rocket3D : MonoBehaviour
             case "Friendly":
                 break;
             case "Finish":
-                StartSuccessSequence();
+                break;
+            case "TheGround":
                 break;
             default:
-                StartDeathSequence();
                 break;
         }
 
-    }
-
-    private void StartSuccessSequence()
-    {
-        state = State.Transcending;
-        mainEngineParticles.Stop();
-        levelWinParticles.Play();
-        audioSource.Stop();
-        audioSource.PlayOneShot(levelWin);
-        Invoke("LoadNextLevel", levelLoadDelay);
-    }
-
-    private void StartDeathSequence()
-    {
-        state = State.Dying;
-        mainEngineParticles.Stop();
-        rocketCrashParticles.Play();
-        audioSource.Stop();
-        audioSource.PlayOneShot(rocketCrash);
-        Invoke("ReloadLevel", levelLoadDelay);
-    }
-
-    public void LoadFirstLevel()
-    {
-        SceneManager.LoadScene(2);
-    }
-
-    private void LoadNextLevel()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
-        if (nextSceneIndex > sceneCount - 1)
-        {
-            nextSceneIndex = 0;
-        }
-        SceneManager.LoadScene(nextSceneIndex);
-    }
-
-
-    private void ReloadLevel()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
     }
 
     private void RespondToThrustInput()
@@ -164,7 +120,6 @@ public class Rocket3D : MonoBehaviour
 
         float rotationThisFrame = rcsThrust *  Time.deltaTime;
 
-
         if (Input.GetKey(KeyCode.W))
         {
             transform.Rotate(Vector3.right * rotationThisFrame);
@@ -185,9 +140,7 @@ public class Rocket3D : MonoBehaviour
     {
         rigidBody.freezeRotation = true; // Take manual control over rotation
 
-        float rotationThisFrame = (rcsThrust * 20f) * Time.deltaTime;
-
-
+        float rotationThisFrame = rcsThrust * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.Q))
         {
@@ -207,12 +160,7 @@ public class Rocket3D : MonoBehaviour
 
     private void RespondToDebugKeys()
     {
-        if (Input.GetKey(KeyCode.L))
-        {
-            LoadNextLevel();
-        }
-
-        else if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.C))
         {
             // Note: assigning the opposite of a bool to itself makes a toggle. Dope!
             collisionDisabled = !collisionDisabled;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FodderBuilding : MonoBehaviour {
+public class Bldg_Base : MonoBehaviour {
 
     enum State { Alive, Dying, Transcending, SafeTravel }
     State state = State.Alive;
@@ -23,7 +23,7 @@ public class FodderBuilding : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -34,7 +34,7 @@ public class FodderBuilding : MonoBehaviour {
         {
             case "Player":
                 Destroy(GetComponent<BoxCollider>());
-                Destroy(gameObject, 5);
+                Destroy(gameObject, 1);
                 break;
             default:
                 break;

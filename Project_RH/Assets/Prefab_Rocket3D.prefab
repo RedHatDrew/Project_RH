@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 4007843720543940}
   - component: {fileID: 54641830187339248}
   - component: {fileID: 82393351436903682}
-  - component: {fileID: 114925761569964110}
   - component: {fileID: 114274722809013606}
   m_Layer: 0
   m_Name: Prefab_Rocket3D
@@ -807,26 +806,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb72c4e1fc624bb2a75aabac5991f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rcsThrust: 10
-  mainThrust: 5
-  levelLoadDelay: 3
-  mainEngine: {fileID: 8300000, guid: 401300e472d636245bb35393e5430380, type: 3}
-  rocketCrash: {fileID: 8300000, guid: 3aa759ae41ec8554ea14e827afa237ae, type: 3}
-  levelWin: {fileID: 8300000, guid: 868f83088e542c54c9d15279b3dd6f84, type: 3}
-  mainEngineParticles: {fileID: 198094339440525586}
-  levelWinParticles: {fileID: 198634244955240382}
-  rocketCrashParticles: {fileID: 198634244955240382}
---- !u!114 &114925761569964110
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1415652927871066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3880de07f474d55a3990707b32a3e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   rcsThrust: 200
   mainThrust: 35
   levelLoadDelay: 3
@@ -835,7 +814,7 @@ MonoBehaviour:
   levelWin: {fileID: 8300000, guid: 868f83088e542c54c9d15279b3dd6f84, type: 3}
   mainEngineParticles: {fileID: 198094339440525586}
   levelWinParticles: {fileID: 198634244955240382}
-  rocketCrashParticles: {fileID: 198539751142221216}
+  rocketCrashParticles: {fileID: 198634244955240382}
 --- !u!135 &135983470363753514
 SphereCollider:
   m_ObjectHideFlags: 1
