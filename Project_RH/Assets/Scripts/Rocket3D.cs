@@ -73,7 +73,13 @@ public class Rocket3D : MonoBehaviour
 
     private void RespondToThrustInput()
     {
+
         if (Input.GetKey(KeyCode.Space)) // can thrust while rotating
+        {
+            ApplyThrust();
+        }
+
+        if (Input.GetButton("Fire1"))
         {
             ApplyThrust();
         }
@@ -101,6 +107,12 @@ public class Rocket3D : MonoBehaviour
 
         float rotationThisFrame = rcsThrust * Time.deltaTime;
 
+        if (Input.GetAxis("Horizontal") != Mathf.Abs(0.0f))
+        {
+            var z = Input.GetAxis("Horizontal") * rotationThisFrame;
+            transform.Rotate(0, 0, -z);
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.forward * rotationThisFrame);
@@ -119,6 +131,12 @@ public class Rocket3D : MonoBehaviour
         rigidBody.freezeRotation = true; // Take manual control over rotation
 
         float rotationThisFrame = rcsThrust *  Time.deltaTime;
+
+        if (Input.GetAxis("Vertical") != Mathf.Abs(0.0f))
+        {
+            var x = Input.GetAxis("Vertical") * rotationThisFrame;
+            transform.Rotate(x, 0, 0);
+        }
 
         if (Input.GetKey(KeyCode.W))
         {
