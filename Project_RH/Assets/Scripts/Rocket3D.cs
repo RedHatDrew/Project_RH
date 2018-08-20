@@ -74,15 +74,11 @@ public class Rocket3D : MonoBehaviour
     private void RespondToThrustInput()
     {
 
-        if (Input.GetKey(KeyCode.Space)) // can thrust while rotating
+        if (Input.GetKey(KeyCode.Space) || Input.GetButton("Fire1")) // can thrust while rotating
         {
             ApplyThrust();
         }
 
-        if (Input.GetButton("Fire1"))
-        {
-            ApplyThrust();
-        }
 
         else
         {
