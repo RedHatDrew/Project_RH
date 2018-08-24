@@ -587,7 +587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2117281389}
   smoothSpeed: 0.125
-  offset: {x: 0, y: 40, z: -20}
+  offset: {x: 0, y: 30, z: -20}
 --- !u!81 &495570430
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1232,11 +1232,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4007843720543940, guid: 577342dec79d14fa698febc8c478f3bb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.1
+      value: -1.73
       objectReference: {fileID: 0}
     - target: {fileID: 4007843720543940, guid: 577342dec79d14fa698febc8c478f3bb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -77.68
+      value: -76.46
       objectReference: {fileID: 0}
     - target: {fileID: 4007843720543940, guid: 577342dec79d14fa698febc8c478f3bb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1261,7 +1261,7 @@ Prefab:
     - target: {fileID: 114274722809013606, guid: 577342dec79d14fa698febc8c478f3bb,
         type: 2}
       propertyPath: rcsThrust
-      value: 200
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 54641830187339248, guid: 577342dec79d14fa698febc8c478f3bb,
         type: 2}
@@ -1281,6 +1281,29 @@ Prefab:
     - target: {fileID: 4007843720543940, guid: 577342dec79d14fa698febc8c478f3bb, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007843720543940, guid: 577342dec79d14fa698febc8c478f3bb, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.4115276
+      objectReference: {fileID: 0}
+    - target: {fileID: 54641830187339248, guid: 577342dec79d14fa698febc8c478f3bb,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007843720543940, guid: 577342dec79d14fa698febc8c478f3bb, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.4616811
+      objectReference: {fileID: 0}
+    - target: {fileID: 54641830187339248, guid: 577342dec79d14fa698febc8c478f3bb,
+        type: 2}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274722809013606, guid: 577342dec79d14fa698febc8c478f3bb,
+        type: 2}
+      propertyPath: mainThrust
+      value: 350
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 577342dec79d14fa698febc8c478f3bb, type: 2}
